@@ -1,6 +1,6 @@
-package com.orangehrm.step_definitions;
+package com.orangehrm.step_definitions.login;
 
-import com.orangehrm.pages.LoginPage;
+import com.orangehrm.pages.login.LoginPage;
 import com.orangehrm.utility.ConfigReader;
 import com.orangehrm.utility.Driver;
 import io.cucumber.java.en.Given;
@@ -12,6 +12,7 @@ public class LoginSteps {
     LoginPage loginPage = new LoginPage();
 
 
+
     @Given("User is on the login page")
     public void user_is_on_the_login_page() {
         String url = ConfigReader.getProperty("login.url");
@@ -19,21 +20,9 @@ public class LoginSteps {
 
     }
 
-    @When("User enters valid username")
-    public void user_enters_valid_username() {
-        loginPage.usernameInput.sendKeys(ConfigReader.getProperty("username"));
-
-    }
-
-    @When("User enters valid password")
-    public void user_enters_valid_password() {
-        loginPage.passwordInput.sendKeys(ConfigReader.getProperty("password"));
-
-    }
-
-    @When("User clicks on login button")
-    public void user_clicks_on_login_button() {
-        loginPage.loginButton.click();
+    @When("User logs in with valid credentials")
+    public void user_logs_in_with_valid_credentials() {
+        loginPage.login(ConfigReader.getProperty("username"), ConfigReader.getProperty("password"));
     }
 
     @Then("User should be able to login")
