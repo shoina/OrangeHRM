@@ -104,15 +104,4 @@ The following deliverables will be produced during this project:
    - **Test Results Summary**: A summary of test pass/fail status with logs.
    - **CI/CD Integration**: Automated tests integrated with Jenkins for continuous testing.
 
----
-
-###  **Test Execution Schedule**
-The project will follow the following timeline:
-   - **Week 1**: Define test cases, set up test environment, install dependencies.
-   - **Week 2**: Develop the Page Object Model (POM) and base framework setup.
-   - **Week 3**: Implement test cases for login, dashboard, and employee management.
-   - **Week 4**: Implement test cases for leave management and logout.
-   - **Week 5**: Integrate with Jenkins, set up cross-browser testing, generate reports.
-   - **Week 6**: Perform final test run, review results, and adjust as needed.
-
 
