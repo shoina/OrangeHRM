@@ -24,6 +24,22 @@ public class EmployeeListPage {
     @FindBy (xpath = "//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='0295']")
     public WebElement searchResultId;
 
+    @FindBy(xpath = "(//button[@class='oxd-icon-button oxd-table-cell-action-space'])[1]")
+    public WebElement editButton;
+
+    @FindBy(xpath = "(//button[@class='oxd-icon-button oxd-table-cell-action-space'])[2]")
+    public WebElement deleteButton;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement saveChangesButton;
+
+    public void search(String id){
+        employeeIdField.sendKeys(id);
+        searchButton.click();
+
+    }
+
+
 
 
 
