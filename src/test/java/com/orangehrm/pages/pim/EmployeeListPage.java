@@ -12,7 +12,7 @@ public class EmployeeListPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath ="//input[placeholder= 'Type for hints...']")
+    @FindBy(xpath ="//input[@placeholder= 'Type for hints...']")
     public WebElement fullNameField;
 
     @FindBy (xpath = "(//input[@class='oxd-input oxd-input--active'])[2]")
@@ -36,10 +36,17 @@ public class EmployeeListPage {
     public void search(String id){
         employeeIdField.sendKeys(id);
         searchButton.click();
-
     }
 
+    public WebElement getSearchResultById(String id) {
+        String dynamicXPath = "//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + id + "']";
+        return Driver.getDriver().findElement(By.xpath(dynamicXPath));
+    }
 
+    public WebElement getEditButtonById(String id) {
+        String dynamicXPath = "//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + id + "']/following::button[@class='oxd-icon-button oxd-table-cell-action-space'][1]";
+        return Driver.getDriver().findElement(By.xpath(dynamicXPath));
+    }
 
 
 

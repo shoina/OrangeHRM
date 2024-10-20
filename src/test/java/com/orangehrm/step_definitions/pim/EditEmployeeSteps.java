@@ -6,15 +6,22 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 
 public class EditEmployeeSteps {
     EmployeeListPage employeeListPage = new EmployeeListPage();
 
 
-    @When("User clicks on the edit button for employee with {}")
-    public void user_clicks_on_the_edit_button_for_employee_with() {
-       employeeListPage.search("1234");
-       employeeListPage.editButton.click();
+    @When("User clicks on the edit button for employee with ID {string}")
+    public void user_clicks_on_the_edit_button_for_employee_with(String employeeId) {
+        employeeListPage.search(employeeId);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        WebElement editButton = employeeListPage.getEditButtonById(employeeId);
+        editButton.click();
     }
     @And("User is able to edit the employee's information")
     public void user_is_able_to_edit_the_employee_s_information() {
