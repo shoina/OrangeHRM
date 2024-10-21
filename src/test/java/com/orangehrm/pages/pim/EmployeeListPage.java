@@ -33,6 +33,9 @@ public class EmployeeListPage {
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     public WebElement saveChangesButton;
 
+    @FindBy(css = "button.oxd-button--label-danger")
+    public WebElement yesDeleteButton;
+
     public void search(String id){
         employeeIdField.sendKeys(id);
         searchButton.click();
@@ -45,6 +48,18 @@ public class EmployeeListPage {
 
     public WebElement getEditButtonById(String id) {
         String dynamicXPath = "//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + id + "']/following::button[@class='oxd-icon-button oxd-table-cell-action-space'][1]";
+        return Driver.getDriver().findElement(By.xpath(dynamicXPath));
+    }
+
+    public WebElement getDeleteButton(String id){
+        String dynamicXPath = "//div[@class='oxd-table-cell oxd-padding-cell']//div[text()='" + id + "']/following::button[@class='oxd-icon-button oxd-table-cell-action-space'][2]";
+        return Driver.getDriver().findElement(By.xpath(dynamicXPath));
+
+    }
+
+
+    public WebElement getConfirmationMessage(String action) {
+        String dynamicXPath = "//p[text()='" + action + "']";
         return Driver.getDriver().findElement(By.xpath(dynamicXPath));
     }
 
