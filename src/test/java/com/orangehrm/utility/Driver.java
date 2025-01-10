@@ -47,7 +47,7 @@ import java.time.Duration;
         /**
          * Close the WebDriver instance.
          */
-        public static void quitDriver() {
+        public static void closeDriver() {
             if (driver != null) {
                 driver.quit();
                 driver = null;  // Set to null to ensure a new instance can be created next time
