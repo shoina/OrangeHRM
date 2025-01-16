@@ -13,7 +13,9 @@ public abstract class BaseTest {
 
     @After
     public void tearDown() {
+        System.out.println("Executing teardown...");
         Driver.closeDriver();
     }
+
 }
 

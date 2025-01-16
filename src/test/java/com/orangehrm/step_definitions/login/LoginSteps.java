@@ -1,16 +1,17 @@
 package com.orangehrm.step_definitions.login;
 
+import com.orangehrm.base.BaseTest;
 import com.orangehrm.pages.login.LoginPage;
 import com.orangehrm.utility.ConfigReader;
 import com.orangehrm.utility.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import org.junit.After;
 import org.junit.Assert;
 
-public class LoginSteps {
+public class LoginSteps extends BaseTest {
     LoginPage loginPage = new LoginPage();
-
 
 
     @Given("User is on the login page")
@@ -31,6 +32,8 @@ public class LoginSteps {
         String expected = ConfigReader.getProperty("home.url");
         String actual = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expected, actual);
+
+
     }
 
 }
